@@ -33,12 +33,7 @@ function addTransactionDOM(transaction) {
 //HOMEWORK #1 - BALANCES FOR EACH CUSTOMER
   const bal_item = document.createElement('li');
 
-  //to add classList fo border color 
-  if (transaction.deposit > transaction.loan ) {
-    bal_item.classList.add('plus')} else {
-    bal_item.classList.add('minus') 
-    } ;
-
+  bal_item.classList.add('bal');
   bal_item.innerHTML = `
   ${transaction.customername}-${transaction.bank} <span> $ ${Math.abs(
    transaction.deposit - transaction.loan  
@@ -78,13 +73,13 @@ function updateValues() {
     .attr("height",20)
     .attr("width", function(d) { return d /100 + "px"; }); //"width", 40px, *10 just to make it big enough
   
-  //for labels
+  //for labels - FIX!!!
   svg.selectAll("text")
   .data(data)
   .enter().append("text")
   .attr("transform",function(d, i) { return "translate(0,"+Number(i*25+15)+")" }) //"translate(0,15)"
   // .attr("transform", function(d) { return d /100}) //"translate(0,15)"
-  .attr("fill",'black')
+  .attr("fill",'blue')
   .text(function(d, i) { if (i ===0) {return "Deposits: $" + d } else {return "Loans: $" + d }  });
   
    
@@ -120,7 +115,7 @@ function filterTransaction(e) {
   filterTransaction();
 } */
 
-init();
+//init();
 //form.addEventListener('submit', filterTransaction);
 b1.addEventListener('click',filterTransaction);
 b2.addEventListener('click',init);  //no need to call init when no event handler it will reload/referesh the page

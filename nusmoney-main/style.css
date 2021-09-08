@@ -66,13 +66,13 @@ h4 {
   margin: 5px 0;
 }
 
-.money.plus {
-  color: #2ecc71;
-}
+/* .money.plus { */
+  /* color: #2ecc71; */
+/* } */
 
-.money.minus {
-  color: #c0392b;
-}
+/* .money.minus { */
+  /* color: #c0392b; */
+/* } */
 
 label {
   display: inline-block;
