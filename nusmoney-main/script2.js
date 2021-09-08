@@ -98,7 +98,7 @@ function init() {
   
   list.innerHTML = '';
   reco.innerHTML = '';
-  graph.innerHTML = '';
+  graph.innerHTML = '';//setting the svg to blank
   TransactionData = [...TransactionDataAll]; //copy one array into another array, copying all the transaction data for the initialization
   TransactionData.forEach(addTransactionDOM); //for each row of data, call this function
   updateValues();//to put the sum of all deposits and all loans when the page is initialized
@@ -109,7 +109,7 @@ function filterTransaction(e) {
   e.preventDefault();  //to prevent form from submitting and refreshing the page or else will go back to original page
   list.innerHTML = '';
   reco.innerHTML = '';
-  graph.innerHTML = '';
+  graph.innerHTML = '';//setting the svg to blank
   TransactionData = TransactionDataAll.filter(tran => tran.customername.toUpperCase() == custname.value.toUpperCase());  
   TransactionData.forEach(addTransactionDOM);
   updateValues(); 
