@@ -7,9 +7,9 @@ const b2 = document.getElementById('b2');
 //e is event that triggered
 function getFromServer(e){
   e.preventDefault();
-  var querryStr =  "https://nusbackendstub.herokuapp.com/user/by-uid?user_id=" + uid.value;
+  var querryStr =  "https://nusbackendstub.herokuapp.com/user/by-uid?user_id=" + uid.value; //userid
   //console.log (querryStr);
-  $.getJSON(querryStr, mydata );
+  $.getJSON(querryStr, mydata );//my data is a function
   } //above line is jQuery
 
 

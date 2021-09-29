@@ -33,7 +33,7 @@ function addTransactionDOM(transaction) {
 //HOMEWORK #1 - BALANCES FOR EACH CUSTOMER
   const bal_item = document.createElement('li');
 
-  //to add classList fo border color 
+  //add classList for border color 
   if (transaction.deposit > transaction.loan ) {
     bal_item.classList.add('plus')} else {
     bal_item.classList.add('minus') 
@@ -60,7 +60,7 @@ function updateValues() {
   reco.innerText = (bal >= 0)? "You Have Sound Financial Health": "Your Financial Health is Weak";
 
   //HOMEWORK # 2 - BAR GRAPH
-  var data = [total_deposit, total_loan]; //setting data equal to the total deposit and total loan
+  var data = [total_deposit, total_loan]; //setting graph data equal to the total deposit and total loan
   
   //creating the SVG container
   var svg = d3.select("article")
@@ -69,7 +69,6 @@ function updateValues() {
     .attr("height",50);
   
   //binding the data and drawing the rectangle
-  //i is index; d3 implicitly knows that the first argument is the array element, and the second is the index; optional third parameter is the array (the entire array will be passed into the function)
   svg.selectAll("rect")
     .data(data)
     .enter().append("rect")
@@ -78,12 +77,11 @@ function updateValues() {
     .attr("height",20)
     .attr("width", function(d) { return d /100 + "px"; }); //"width", 40px, *10 just to make it big enough
   
-  //for labels
+  //labels
   svg.selectAll("text")
   .data(data)
   .enter().append("text")
-  .attr("transform",function(d, i) { return "translate(0,"+Number(i*25+15)+")" }) //"translate(0,15)"
-  // .attr("transform", function(d) { return d /100}) //"translate(0,15)"
+  .attr("transform",function(d, i) { return "translate(0,"+Number(i*25+15)+")" }) 
   .attr("fill",'black')
   .text(function(d, i) { if (i ===0) {return "Deposits: $" + d } else {return "Loans: $" + d }  });
   
@@ -115,12 +113,8 @@ function filterTransaction(e) {
   updateValues(); 
 }
 
-/* if ((custname = "Jack") && (pwd = "123")) {
 
-  filterTransaction();
-} */
-
-init();
+init(); //run init
 //form.addEventListener('submit', filterTransaction);
 b1.addEventListener('click',filterTransaction);
 b2.addEventListener('click',init);  //no need to call init when no event handler it will reload/referesh the page
